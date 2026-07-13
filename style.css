@@ -86,6 +86,7 @@ video {
   font: inherit;
   vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -100,17 +101,21 @@ nav,
 section {
   display: block;
 }
+
 body {
   line-height: 1;
 }
+
 ol,
 ul {
   list-style: none;
 }
+
 blockquote,
 q {
   quotes: none;
 }
+
 blockquote:before,
 blockquote:after,
 q:before,
@@ -118,6 +123,7 @@ q:after {
   content: "";
   content: none;
 }
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -125,12 +131,26 @@ table {
 
 /* STYLE */
 
+* {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+}
+
 body {
   margin: auto;
   font-family: "Google Sans", sans-serif;
   background-color: #280905;
   color: white;
   line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 /* Navbar Section Start */
@@ -155,6 +175,7 @@ body {
   color: white;
   /* font-weight: bold; */
   font-family: "Gotham Black";
+  white-space: nowrap;
 }
 
 .navbar .nav-link:hover {
@@ -171,11 +192,13 @@ body {
   transform: scale(1.1);
   text-decoration: none;
 }
+
 /* Navbar Section End */
 
 /* Home Section Start */
 header {
-  height: 100vh;
+  height: 100svh;
+  min-height: 480px;
   display: grid;
   position: relative;
   grid-template-areas: "stack";
@@ -202,6 +225,13 @@ header .introduction {
   margin-bottom: -70px;
 }
 
+@media screen and (min-width: 1200px) {
+  header .introduction {
+    margin-left: 760px;
+    transform: translate(-50%, -50%);
+  }
+}
+
 .overlay {
   position: absolute;
   top: 0;
@@ -223,27 +253,21 @@ header .introduction {
   pointer-events: none;
 }
 
-@media screen and (min-width: 1200px) {
-  header .introduction {
-    margin-left: 760px;
-    transform: translate(-50%, -50%);
-  }
-}
-
 .home {
   overflow: hidden;
 }
+
 /* Home Section End */
 
 /* Member Section Start */
 .member-heading {
   text-align: center;
-  padding: 80px 0 50px;
+  padding: 80px 20px 50px;
 }
 
 .member-heading h1 {
   font-family: "Poppins", sans-serif;
-  font-size: 2.8rem;
+  font-size: clamp(1.8rem, 4vw + 0.5rem, 2.8rem);
   font-weight: 700;
   color: beige;
   margin-bottom: 12px;
@@ -259,7 +283,7 @@ header .introduction {
 
 .member {
   position: relative;
-  padding: 40px;
+  padding: 40px 16px;
 }
 
 a {
@@ -283,11 +307,12 @@ a {
   transform: translateY(-20px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 5);
 }
+
 /* Member Section End */
 
 /* History Section Start */
 .judul-history {
-  padding: 90px 0 60px;
+  padding: 90px 20px 60px;
   background: #280905;
   text-align: center;
 }
@@ -305,7 +330,7 @@ a {
 
 .judul-history .judul {
   font-family: "Poppins", sans-serif;
-  font-size: 3rem;
+  font-size: clamp(1.8rem, 5vw + 0.5rem, 3rem);
   font-weight: 700;
   color: #ecdbba;
   letter-spacing: 1px;
@@ -408,41 +433,49 @@ a {
   transform: translateY(0);
 }
 
-.col-md-3.fade-in:nth-child(1) {
+.row.g-4>.fade-in:nth-child(1) {
   transition-delay: 0s;
 }
-.col-md-3.fade-in:nth-child(2) {
+
+.row.g-4>.fade-in:nth-child(2) {
   transition-delay: 0.1s;
 }
-.col-md-3.fade-in:nth-child(3) {
+
+.row.g-4>.fade-in:nth-child(3) {
   transition-delay: 0.15s;
 }
-.col-md-3.fade-in:nth-child(4) {
+
+.row.g-4>.fade-in:nth-child(4) {
   transition-delay: 0.2s;
 }
-.col-md-3.fade-in:nth-child(5) {
+
+.row.g-4>.fade-in:nth-child(5) {
   transition-delay: 0.25s;
 }
-.col-md-3.fade-in:nth-child(6) {
+
+.row.g-4>.fade-in:nth-child(6) {
   transition-delay: 0.3s;
 }
-.col-md-3.fade-in:nth-child(7) {
+
+.row.g-4>.fade-in:nth-child(7) {
   transition-delay: 0.35s;
 }
-.col-md-3.fade-in:nth-child(8) {
+
+.row.g-4>.fade-in:nth-child(8) {
   transition-delay: 0.4s;
 }
+
 /* History Section End */
 
 /* Album Section Start */
 .album-heading {
   text-align: center;
-  padding: 80px 0 50px;
+  padding: 80px 20px 50px;
 }
 
 .album-heading h1 {
   font-family: "Poppins", sans-serif;
-  font-size: 2.8rem;
+  font-size: clamp(1.8rem, 4vw + 0.5rem, 2.8rem);
   font-weight: 700;
   color: beige;
   margin-bottom: 12px;
@@ -468,6 +501,7 @@ a {
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   padding: 25px 4% 25px;
+  -webkit-overflow-scrolling: touch;
 }
 
 .album-scroll::-webkit-scrollbar {
@@ -521,11 +555,9 @@ a {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.55) 0%,
-    rgba(0, 0, 0, 0) 45%
-  );
+  background: linear-gradient(to top,
+      rgba(0, 0, 0, 0.55) 0%,
+      rgba(0, 0, 0, 0) 45%);
   opacity: 0;
   transition: opacity 0.35s ease;
 }
@@ -566,11 +598,6 @@ a {
   font-size: 0.9rem;
 }
 
-@media screen and (max-width: 480px) {
-  .album-card {
-    flex: 0 0 240px;
-  }
-}
 /* Album Section End */
 
 /* footer section Start */
@@ -588,11 +615,9 @@ a {
   transform: translateX(-50%);
   width: 500px;
   height: 240px;
-  background: radial-gradient(
-    circle,
-    rgba(250, 226, 81, 0.15),
-    transparent 70%
-  );
+  background: radial-gradient(circle,
+      rgba(250, 226, 81, 0.15),
+      transparent 70%);
   pointer-events: none;
 }
 
@@ -680,11 +705,151 @@ a {
   color: #8a7360;
 }
 
-@media screen and (max-width: 768px) {
+/* Footer Section End */
+
+/* ============================
+   RESPONSIVE BREAKPOINTS
+   ============================ */
+
+/* Tablets (<=991px, below lg) */
+@media screen and (max-width: 991.98px) {
+  .navbar .container>.row {
+    row-gap: 0.5rem;
+  }
+
+  .navbar-brand img {
+    width: 90px;
+  }
+
+  .navbar .nav-link {
+    font-size: 0.75rem;
+  }
+
+  .col-6.d-flex.gap-4,
+  .col-6.d-flex.justify-content-end.gap-4 {
+    gap: 1rem !important;
+  }
+
+  .wrapper {
+    padding: 0 24px;
+  }
+
+  .parent {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    max-width: 100%;
+  }
+
+  .div1,
+  .div2,
+  .div3,
+  .div4 {
+    grid-column: span 1 / span 1 !important;
+    grid-row: auto !important;
+    min-height: auto;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-brand {
+    grid-column: span 2;
+    text-align: center;
+  }
+
+  .footer-brand p {
+    margin: 0 auto;
+  }
+}
+
+/* Small tablets / large phones (<=767px) */
+@media screen and (max-width: 767.98px) {
+
+  .navbar .col-6.d-flex.gap-4,
+  .navbar .col-6.d-flex.justify-content-end.gap-4 {
+    display: none !important;
+  }
+
+  .navbar .col-lg-4 {
+    width: 100%;
+  }
+
+  .navbar-brand img {
+    width: 150px;
+  }
+
+  header .introduction {
+    padding: 1.25rem;
+    margin-bottom: 0;
+    align-self: end;
+    /* dorong ke bawah */
+    padding-bottom: 4rem;
+    /* jarak dari bawah video */
+  }
+
+  header .introduction h1 {
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  .member-heading,
+  .album-heading {
+    padding: 60px 16px 36px;
+  }
+
+  .member {
+    padding: 24px 12px;
+  }
+
+  .judul-history {
+    padding: 70px 16px 44px;
+  }
+
+  .wrapper {
+    padding: 0 16px;
+  }
+
+  .parent {
+    margin-top: 3rem;
+    gap: 12px;
+  }
+
+  .div1,
+  .div2,
+  .div3,
+  .div4 {
+    padding: 20px;
+  }
+
+  .div1 h3,
+  .div2 h3,
+  .div3 h3,
+  .div4 h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+
+  .div1 p,
+  .div2 p,
+  .div3 p,
+  .div4 p {
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+
+  .album-card {
+    flex: 0 0 260px;
+  }
+
   .footer-top {
     grid-template-columns: 1fr;
     gap: 32px;
     text-align: center;
+  }
+
+  .footer-brand {
+    grid-column: auto;
   }
 
   .footer-brand p {
@@ -698,6 +863,65 @@ a {
   .footer-bottom {
     justify-content: center;
     text-align: center;
+    flex-direction: column;
   }
 }
-/* Footer Section End */
+
+/* Phones (<=575px) */
+@media screen and (max-width: 575.98px) {
+  .navbar-brand img {
+    width: 120px;
+  }
+
+  .navbar .nav-link {
+    font-size: 0.65rem;
+    letter-spacing: 0.3px;
+  }
+
+  .col-6.d-flex.gap-4,
+  .col-6.d-flex.justify-content-end.gap-4 {
+    gap: 0.6rem !important;
+  }
+
+  header .introduction h1 {
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  .parent {
+    grid-template-columns: 1fr;
+  }
+
+  .album-card {
+    flex: 0 0 220px;
+  }
+
+  .album-info {
+    padding: 16px 18px 18px;
+  }
+
+  .album-info h3 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Very small phones (<=380px) */
+@media screen and (max-width: 380px) {
+  .navbar .nav-link {
+    font-size: 0.6rem;
+  }
+
+  header .introduction h1 {
+    font-size: 0.78rem;
+    line-height: 1.55;
+  }
+
+  .member-heading h1,
+  .album-heading h1 {
+    font-size: 1.6rem;
+  }
+
+  .judul-history .judul {
+    font-size: 1.6rem;
+  }
+}
