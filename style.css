@@ -216,21 +216,19 @@ header video {
 }
 
 header .introduction {
-  grid-area: stack;
   font-family: "Google Sans";
   text-align: center;
   z-index: 1;
   width: min(50em, 100%);
   padding: 2rem;
-  margin-bottom: -70px;
 }
 
-@media screen and (min-width: 1200px) {
+/* @media screen and (min-width: 1200px) {
   header .introduction {
     margin-left: 760px;
     transform: translate(-50%, -50%);
   }
-}
+} */
 
 .overlay {
   position: absolute;
@@ -255,6 +253,27 @@ header .introduction {
 
 .home {
   overflow: hidden;
+}
+
+.hero {
+  grid-area: stack;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;   /* ganti dari "center" */
+  padding-top: 15rem;             /* atur angka ini: makin kecil = makin naik */
+  gap: 1.5rem;
+  z-index: 1;
+  width: min(50em, 100%);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  height: 100%;
+}
+
+.foto-tengah {
+  width: 750px;
+  max-width: 90%;   /* diperbesar dari 280px, atur sesuai selera */
+  height: auto;
 }
 
 /* Home Section End */
