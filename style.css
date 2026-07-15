@@ -260,8 +260,8 @@ header .introduction {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;   /* ganti dari "center" */
-  padding-top: 15rem;             /* atur angka ini: makin kecil = makin naik */
+  justify-content: flex-start; /* ganti dari "center" */
+  padding-top: 15rem; /* atur angka ini: makin kecil = makin naik */
   gap: 1.5rem;
   z-index: 1;
   width: min(50em, 100%);
@@ -272,7 +272,7 @@ header .introduction {
 
 .foto-tengah {
   width: 750px;
-  max-width: 90%;   /* diperbesar dari 280px, atur sesuai selera */
+  max-width: 90%; /* diperbesar dari 280px, atur sesuai selera */
   height: auto;
 }
 
@@ -365,7 +365,7 @@ a {
 }
 
 .wrapper {
-  position: relative;   /* tambahan */
+  position: relative; /* tambahan */
   overflow: visible;
   display: flex;
   justify-content: center;
@@ -456,35 +456,35 @@ a {
   transform: translateY(0);
 }
 
-.row.g-4>.fade-in:nth-child(1) {
+.row.g-4 > .fade-in:nth-child(1) {
   transition-delay: 0s;
 }
 
-.row.g-4>.fade-in:nth-child(2) {
+.row.g-4 > .fade-in:nth-child(2) {
   transition-delay: 0.1s;
 }
 
-.row.g-4>.fade-in:nth-child(3) {
+.row.g-4 > .fade-in:nth-child(3) {
   transition-delay: 0.15s;
 }
 
-.row.g-4>.fade-in:nth-child(4) {
+.row.g-4 > .fade-in:nth-child(4) {
   transition-delay: 0.2s;
 }
 
-.row.g-4>.fade-in:nth-child(5) {
+.row.g-4 > .fade-in:nth-child(5) {
   transition-delay: 0.25s;
 }
 
-.row.g-4>.fade-in:nth-child(6) {
+.row.g-4 > .fade-in:nth-child(6) {
   transition-delay: 0.3s;
 }
 
-.row.g-4>.fade-in:nth-child(7) {
+.row.g-4 > .fade-in:nth-child(7) {
   transition-delay: 0.35s;
 }
 
-.row.g-4>.fade-in:nth-child(8) {
+.row.g-4 > .fade-in:nth-child(8) {
   transition-delay: 0.4s;
 }
 
@@ -494,19 +494,36 @@ a {
   bottom: 0px;
   width: 200%;
   height: 110%;
-  background-image: url('foto/dewaaaa.png');
+  background-image: url("album/album\ 1992.jpg"), url("foto/foto\ dewa\ 1.jpg");
+
   background-repeat: repeat-x;
   background-size: 50% 100%;
   z-index: 0;
-  opacity: 0.50;
+  opacity: 0.5;
   animation: slideBg 20s linear infinite;
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
-  mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
 }
 
 @keyframes slideBg {
-  from { background-position: 0% center; }
-  to   { background-position: -100% center; }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .judul-history {
@@ -606,9 +623,11 @@ a {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top,
-      rgba(0, 0, 0, 0.55) 0%,
-      rgba(0, 0, 0, 0) 45%);
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0) 45%
+  );
   opacity: 0;
   transition: opacity 0.35s ease;
 }
@@ -666,9 +685,11 @@ a {
   transform: translateX(-50%);
   width: 500px;
   height: 240px;
-  background: radial-gradient(circle,
-      rgba(250, 226, 81, 0.15),
-      transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(250, 226, 81, 0.15),
+    transparent 70%
+  );
   pointer-events: none;
 }
 
@@ -764,7 +785,7 @@ a {
 
 /* Tablets (<=991px, below lg) */
 @media screen and (max-width: 991.98px) {
-  .navbar .container>.row {
+  .navbar .container > .row {
     row-gap: 0.5rem;
   }
 
@@ -816,7 +837,6 @@ a {
 
 /* Small tablets / large phones (<=767px) */
 @media screen and (max-width: 767.98px) {
-
   .navbar .col-6.d-flex.gap-4,
   .navbar .col-6.d-flex.justify-content-end.gap-4 {
     display: none !important;
