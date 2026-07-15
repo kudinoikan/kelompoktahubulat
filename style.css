@@ -365,12 +365,16 @@ a {
 }
 
 .wrapper {
+  position: relative;   /* tambahan */
+  overflow: visible;
   display: flex;
   justify-content: center;
   padding: 0 40px;
 }
 
 .parent {
+  position: relative;
+  z-index: 1;
   margin-top: 5rem;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -484,6 +488,34 @@ a {
   transition-delay: 0.4s;
 }
 
+.history-bg {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  width: 200%;
+  height: 110%;
+  background-image: url('album/album\ 1992.jpg');
+  background-repeat: repeat-x;
+  background-size: 50% 100%;
+  z-index: 0;
+  opacity: 0.25;
+  animation: slideBg 20s linear infinite;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+}
+
+@keyframes slideBg {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.judul-history {
+  position: relative;
+  overflow: hidden;
+  padding: 90px 20px 60px;
+  background: #280905;
+  text-align: center;
+}
 /* History Section End */
 
 /* Album Section Start */
