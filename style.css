@@ -494,19 +494,19 @@ a {
   bottom: 0px;
   width: 200%;
   height: 110%;
-  background-image: url('album/album\ 1992.jpg');
+  background-image: url('foto/dewaaaa.png');
   background-repeat: repeat-x;
   background-size: 50% 100%;
   z-index: 0;
-  opacity: 0.25;
+  opacity: 0.50;
   animation: slideBg 20s linear infinite;
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
   mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
 }
 
 @keyframes slideBg {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from { background-position: 0% center; }
+  to   { background-position: -100% center; }
 }
 
 .judul-history {
