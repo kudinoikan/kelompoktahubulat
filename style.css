@@ -490,39 +490,23 @@ a {
 
 .history-bg {
   position: absolute;
-  top: 0px;
-  bottom: 0px;
+  top: 0;
+  bottom: 0;
+  left: 0;
   width: 200%;
-  height: 110%;
-  background-image: url("foto/dewaaaa.png");
+  background-image: url('foto/dewaaaa.png');
   background-repeat: repeat-x;
   background-size: 50% 100%;
   z-index: 0;
-  opacity: 0.5;
+  opacity: 0.50;
   animation: slideBg 20s linear infinite;
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    transparent 0%,
-    black 15%,
-    black 85%,
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    to bottom,
-    transparent 0%,
-    black 15%,
-    black 85%,
-    transparent 100%
-  );
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
 }
 
 @keyframes slideBg {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+  from { background-position: 0% center; }
+  to   { background-position: -100% center; }
 }
 
 .judul-history {
